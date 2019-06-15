@@ -25,14 +25,17 @@ class Basic(commands.Cog):
             await ctx.send(embed=embed)
             
         else:
-            help_menu = f"__**{self.bot.user.name} help menu**__\n{self.bot.description}\n\nPrefix: `{ctx.prefix}`\nAdditional help: `{ctx.prefix}{self.bot.get_command('help').usage}`"
+            help_menu = f"{self.bot.description}\n\nPrefix: `{ctx.prefix}`\nAdditional help: `{ctx.prefix}{self.bot.get_command('help').usage}`\n"
             for (cog_name, cog) in self.bot.cogs.items():
+                if len(cog.get_commands()) is 0:
+                    continue
+
                 help_menu += f'\n**{cog_name}:**\n```'
                 for cmd in cog.get_commands():
                     help_menu += f'\n{cmd.name}'
                 help_menu += '```'
             
-            await ctx.send(help_menu)
+            await ctx.send(embed=discord.Embed(title=self.bot.user.name + ' help menu', description=help_menu, color=config.discord_color))
 
 
 def setup(bot):

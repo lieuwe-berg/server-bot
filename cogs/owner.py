@@ -2,7 +2,9 @@ from discord.ext import commands
 import discord
 import config
 
-import ast, sys, io, textwrap, traceback
+from utils import checks
+
+import ast, sys, io, textwrap, traceback, re
 from contextlib import redirect_stdout
 
 class Owner(commands.Cog):
@@ -17,9 +19,11 @@ class Owner(commands.Cog):
 
 
     @commands.command(description='Reloads all cogs (command categories).')
+    @checks.is_owner()
     async def reload(self, ctx):
         reloaded = 0
         for cog in self.bot.cogs.keys():
+            cog = re.sub(r"\B([A-Z])", r"_\1", cog)
             cog = cog.lower()
             self.bot.unload_extension(f'cogs.{cog}')
             self.bot.load_extension(f'cogs.{cog}')
@@ -28,12 +32,14 @@ class Owner(commands.Cog):
 
     
     @commands.command(description='Restarts the bot.')
+    @checks.is_owner()
     async def restart(self, ctx):
         await ctx.send('Restarting...')
         await self.bot.logout()
     
     
     @commands.command(name='eval', description='Evaluates the supplied code in the bot.', usage='eval <code>')
+    @checks.is_owner()
     async def _eval(self, ctx, *, body=None):
         if not body:
             await ctx.send('Please provide code to evaluate.')
