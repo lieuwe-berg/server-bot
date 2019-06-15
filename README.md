@@ -3,10 +3,9 @@ A discord.py bot made that allows easy communication from Discord to your (virtu
 
 ## This README is still a work in progress.
 Installation is easy:
-- Clone the repository (`git clone https://github.com/lieuwe-berg/server-bot.git`)
+- Clone the repository (`git clone https://github.com/lieuwe-berg/server-bot.git`).
 - Navigate to the root folder of your cloned repository in the terminal.
 - Run `pip install -r requirements.txt`
-
 - Fill out the config.py.
 - Invite your bot to your server.
 - Run `py bot.py`
