@@ -6,7 +6,7 @@ Installation is easy:
 - Clone the repository (`git clone https://github.com/lieuwe-berg/server-bot.git`).
 - Navigate to the root folder of your cloned repository in the terminal.
 - Run `pip install -r requirements.txt`
-- Fill out the config.py.
+- Fill out the config-example.py and rename it config.py when you're done.
 - Invite your bot to your server.
 - Run `py bot.py`
 - Enjoy. Try the help command for a list of commands.
