@@ -1,5 +1,5 @@
 # Server Bot
-A discord.py bot made that allows easy communication from Discord to your (virtual private/dedicated/home) server.
+A discord.py bot that allows easy communication from Discord to your (virtual private/dedicated/home) server.
 
 ## This README is still a work in progress.
 Installation is easy:
